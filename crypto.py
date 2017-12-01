@@ -15,12 +15,12 @@ while 1:
 	print(f'{datetime.datetime.now()} :: {btc_r.json()["data"]["base"]}: {btc_r.json()["data"]["amount"]} && {eth_r.json()["data"]["base"]}: {eth_r.json()["data"]["amount"]}')
 	if (float(btc_r.json()["data"]["amount"])>btc_top_threshold) or (float(btc_r.json()["data"]["amount"])<btc_low_threshold) or (float(eth_r.json()["data"]["amount"])>eth_top_threshold) or (float(eth_r.json()["data"]["amount"])<eth_low_threshold):
 		if (float(btc_r.json()["data"]["amount"])>btc_top_threshold):
-			print('BTC higher than top threshold')
+			print(f'BTC higher than top threshold ({btc_top_threshold})')
 		if (float(btc_r.json()["data"]["amount"])<btc_low_threshold):
-			print('BTC lower than bottom threshold')
+			print(f'BTC lower than bottom threshold ({btc_low_threshold})')
 		if (float(eth_r.json()["data"]["amount"])>eth_top_threshold):
-			print('ETH higher than top threshold')
+			print(f'ETH higher than top threshold ({eth_top_threshold})')
 		if (float(eth_r.json()["data"]["amount"])<eth_low_threshold):
-			print('ETH lower than bottom threshold')
+			print(f'ETH lower than bottom threshold ({eth_low_threshold})')
 		os.system('play --no-show-progress --null --channels 1 synth %s sine %f' % (duration, freq))
 	time.sleep(15)
